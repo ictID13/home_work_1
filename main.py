@@ -4,7 +4,7 @@ from appium.options.android import UiAutomator2Options
 from appium.webdriver.common.appiumby import AppiumBy
 
 capabilities = dict(
-    platformName='Android',
+    platformName='IOS',
     automationName='uiautomator2',
     deviceName='Android',
     appPackage='com.android.settings',
