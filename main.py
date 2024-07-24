@@ -4,9 +4,9 @@ from appium.options.android import UiAutomator2Options
 from appium.webdriver.common.appiumby import AppiumBy
 
 capabilities = dict(
-    platformName='Conflict',
+    platformName='Conflict3',
     automationName='uiautomator2',
-    deviceName='Android',
+    deviceName='IOS3',
     appPackage='com.android.settings',
     appActivity='.Settings',
     language='en',
