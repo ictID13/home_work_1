@@ -1,16 +1,31 @@
-# This is a sample Python script.
+import unittest
+from appium import webdriver
+from appium.options.android import UiAutomator2Options
+from appium.webdriver.common.appiumby import AppiumBy
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+capabilities = dict(
+    platformName='Android',
+    automationName='uiautomator2',
+    deviceName='Android',
+    appPackage='com.android.settings',
+    appActivity='.Settings',
+    language='en',
+    locale='US'
+)
 
+appium_server_url = 'http://localhost:4723'
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+class TestAppium(unittest.TestCase):
+    def setUp(self) -> None:
+        self.driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))
 
+    def tearDown(self) -> None:
+        if self.driver:
+            self.driver.quit()
 
-# Press the green button in the gutter to run the script.
+    def test_find_battery(self) -> None:
+        el = self.driver.find_element(by=AppiumBy.XPATH, value='//*[@text="Battery"]')
+        el.click()
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    unittest.main()

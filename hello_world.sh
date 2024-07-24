@@ -1,1 +1,0 @@
-hui pizda i djigurda
