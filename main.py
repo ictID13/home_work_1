@@ -6,7 +6,7 @@ from appium.webdriver.common.appiumby import AppiumBy
 capabilities = dict(
     platformName='Conflict',
     automationName='uiautomator2',
-    deviceName='Android',
+    deviceName='Conflikt2',
     appPackage='com.android.settings',
     appActivity='.Settings',
     language='en',
